@@ -4,5 +4,5 @@ export interface Aluno {
     site:string
     endereco:string
     telefone:string
-    nota:number
+    nota:number;
 }
