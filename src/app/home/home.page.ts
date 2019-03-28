@@ -3,6 +3,7 @@ import { LoadingController, AlertController, NavController } from '@ionic/angula
 import { AlunosService } from '../providers/alunos.service';
 import { Aluno } from '../modelos/Alunos';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NavigationCancel, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     const loading = await this.loading.create({
-      message: 'Espere o carregar os carros ...'
+      message: 'Espere o carregar dos alunos ...'
     });
     await loading.present();
 
@@ -39,14 +40,17 @@ export class HomePage implements OnInit {
       }).add(
         () => {
         loading.dismiss();
-      }
-      );
+      });
   }
 
-  selecionarAluno(aluno: Aluno) {
-    console.log(`Aluno selecionado: ${aluno.nome}`);
+  selecionaAluno(aluno: Aluno) {
+    console.log(`Aluno selecionado: ${aluno.nome}`)
 
-
-    this.navCtrl.navigateForward('escolha');
+    let extras: NavigationExtras = {
+      queryParams: {
+        alunoSelecionado: JSON.stringify(aluno)
+      }
+    }
+    this.navCtrl.navigateForward(['escolha'], extras);
   }
 }
