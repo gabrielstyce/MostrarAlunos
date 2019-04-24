@@ -3,7 +3,7 @@ import { LoadingController, AlertController, NavController } from '@ionic/angula
 import { AlunosService } from '../providers/alunos.service';
 import { Aluno } from '../modelos/Alunos';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NavigationCancel, NavigationExtras } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -44,13 +44,17 @@ export class HomePage implements OnInit {
   }
 
   selecionaAluno(aluno: Aluno) {
-    console.log(`Aluno selecionado: ${aluno.nome}`)
+    console.log(`Aluno selecionado: ${aluno.nome}`);
 
     let extras: NavigationExtras = {
       queryParams: {
         alunoSelecionado: JSON.stringify(aluno)
       }
-    }
+    };
     this.navCtrl.navigateForward(['escolha'], extras);
+  }
+
+  avancaCadastro(aluno: Aluno){
+    this.navCtrl.navigateForward(['cadastro']);
   }
 }
