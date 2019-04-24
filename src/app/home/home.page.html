@@ -8,6 +8,7 @@
 
 <ion-content padding>
   <ion-list>
+<<<<<<< HEAD
     <ion-item *ngFor = "let aluno of alunos" (click)='selecionaAluno(aluno)'>
       <ion-label>{{aluno.id}}</ion-label>
       <ion-label>{{aluno.nome}}</ion-label>
@@ -20,4 +21,15 @@
       <ion-icon name='arrow-dropright'></ion-icon>
     </ion-fab-button>
   </ion-fab>
+=======
+    <ion-item *ngFor = "let aluno of alunos">
+      <ion-label>{{aluno.id}}</ion-label>
+      <ion-label>{{aluno.nome}}</ion-label>
+      <ion-label>{{aluno.site}}</ion-label>
+      <ion-label>{{aluno.endereco}}</ion-label>
+      <ion-label>{{aluno.telefone}}</ion-label>
+      <ion-label>{{aluno.nota}}</ion-label>
+    </ion-item>
+  </ion-list>
+>>>>>>> a287f9e28019ae17886a19d64109d2f8e49a45f4
 </ion-content>
